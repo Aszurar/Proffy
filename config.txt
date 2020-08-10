@@ -1,0 +1,121 @@
+criando aplicação react:
+1º) comece com esse comando na pasta do projeto:
+yarn create react-app web --template typescript
+
+2º)Utilize o comando yarn start na pasta web
+
+3º) simplifique a pasta web
+-------delete o readme
+-------delete todos css da pasta src
+-------delete o app.test
+-------delete o logo
+-------delete o service.work
+
+4º configurar os arquivos App.tsx, index.tsx da pasta src, e do index.html da pasta public como no 1º projeto
+5º dps de construir a página inicial, é necessário contruir a navegação via react e para isso é necessário instalar:
+yarn add react-router-dom
+
+5º Após criar o arquivo de rotas importanto o react-router-dom, é necessário instalar:
+yarn add @types/react-router-dom
+
+
+
+SERVIDOR
+
+1º CRIAR A PASTA SERVER, E DAR UM YARN INIT -Y, É PARA CRIAR UM JSON
+2º CRIAR UMA PASTA SRC NA PASTA SERVER, NELA FICARÁ TODO CÓDIGO DA APLICAÇÃO
+3º CRIAR O ARQUIVO SERVER.ts que será o arquivo que gerenciará todas rotas logo quando o servidor abrir
+4º Instalar o typescript na pasta server:
+yarn add typescript
+5º Criar o arquivo de configuração do typescript na pasta server:
+yarn tsc --init
+
+6º Configurar o tsconfig.json que é o arquivo de configuração do typescript:
+mudar o target para es2017
+
+7º Instalar outra dependência:
+yarn add ts-node-dev -D
+ela executa o servidor e verifica se há alguma alteração no typescript, se tiver ela reinicia automaticamente
+
+8º Após isso, configura o json padrão com isso:
+ "scripts": {
+    "start": "tsnd src/server.ts"
+  },
+
+9º outras config:
+ "scripts": {
+    "start": "tsnd --transpile-only --ignore-watch node_module --respawn src/server.ts"
+  },
+
+transpile-only é para que não seja verificado se há erros no typescript
+
+ignore watch node module é para que não tenha conversões nos códigos do node module
+
+respawn é para que, toda vez que haja alguma alteração no código, o servidor atualize, reinicie automaticamente
+
+10º
+Instalar express na pasta servidor
+yarn add express
+
+pacote de funcionalidades prontas, o básico de frameworks
+
+11º
+Caso o visual code indique que há problemas na importação do express ou outra tecnologia sublinhando em vermelho com o alerta
+"instal with npm @types/express" basta instalar desse jeito usando ou npm ou yarn
+
+yarn add @types/express -D
+
+12º Após as funcionalidades serem estabelicidas, vamos instalar os banco de dados:
+instalar sqlite3 com a sintaxe de javascript
+yarn add knex sqlite3
+
+13º Após isso é necessário criar uma pasta dentro do src chamada database, onde estará o banco de dados, dentro dessa pasta, crie um arquivo chamado connection.ts
+
+14º Após a criação de tabelas, configurar 2 comandos do knex no json padrão:
+  "scripts": {
+    "start": "tsnd --transpile-only --ignore-watch node_module --respawn src/server.ts",
+    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback"
+  }
+
+
+15º No fim da parte de servidores:
+instale a depedencia cors:
+yearn add cors
+
+
+MOBILE
+1)começa na pasta iniciando o expo:
+expo init mobile
+
+2)selecionar o tamplate blank typescript
+
+3) executar o comando yarn start dentro da pasta mobile criado
+
+4) baixar o app expo client(expo) no celular, e ler o qrcode da página
+5) abrir o projeto mobile no vscode
+
+6) para erros esse link:
+
+7) para adicionar fontes do google basta copiar esse comando no terminal, com o final usando as fontes que queira:
+expo install expo-font @expo-google-fonts/archivo @expo-google-fonts/poppins
+
+8)importar no app.tsx o elemento AppLoading do expo, para que mostre a tela de carregamento até que a fonte esteja carregada
+import { AppLoading } from expo
+
+9)Após a primeira tela está concluída, começar a navegação!
+importar a biblioteca react-navigation:
+yarn add @react-navigation/native
+
+10) Após isso, instalar na pasta mobile:
+expo install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+
+
+11)APÓS ISSO, INSTALAR O TIPO DE NAVEGAÇÃO QUE IRA USAR, STACK, ABAS OU POR BARRA LATERAL DE MENU NO MSM SITE QUE O ANTERIOR:
+npm install @react-navigation/stack
+yarn add @react-navigation/bottom-tabs
+
+
+12) conexão com a web( yarn add axios)
+
+
